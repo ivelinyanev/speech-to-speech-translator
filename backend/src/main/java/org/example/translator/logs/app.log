@@ -100,3 +100,17 @@ org.springframework.web.multipart.MultipartException: Current request is not a m
 2025-10-03T11:58:12.655+03:00  INFO 36633 --- [translator] [restartedMain] o.e.translator.TranslatorApplication     : Started TranslatorApplication in 0.735 seconds (process running for 0.893)
 2025-10-03T11:58:19.859+03:00  INFO 36633 --- [translator] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
 2025-10-03T11:58:21.872+03:00  INFO 36633 --- [translator] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-03T12:04:00.848+03:00  INFO 37012 --- [translator] [restartedMain] o.e.translator.TranslatorApplication     : Starting TranslatorApplication using Java 17.0.15 with PID 37012 (/Users/ivelinyanev/Documents/tu-all/3-kurs/5-sem/speech-to-speech-translator/backend/build/classes/java/main started by ivelinyanev in /Users/ivelinyanev/Documents/tu-all/3-kurs/5-sem/speech-to-speech-translator/backend)
+2025-10-03T12:04:00.849+03:00  INFO 37012 --- [translator] [restartedMain] o.e.translator.TranslatorApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-10-03T12:04:00.867+03:00  INFO 37012 --- [translator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-10-03T12:04:00.868+03:00  INFO 37012 --- [translator] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-10-03T12:04:01.232+03:00  INFO 37012 --- [translator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-03T12:04:01.238+03:00  INFO 37012 --- [translator] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-03T12:04:01.239+03:00  INFO 37012 --- [translator] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-03T12:04:01.252+03:00  INFO 37012 --- [translator] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-03T12:04:01.252+03:00  INFO 37012 --- [translator] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 384 ms
+2025-10-03T12:04:01.394+03:00  INFO 37012 --- [translator] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-10-03T12:04:01.403+03:00  INFO 37012 --- [translator] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-03T12:04:01.408+03:00  INFO 37012 --- [translator] [restartedMain] o.e.translator.TranslatorApplication     : Started TranslatorApplication in 0.76 seconds (process running for 0.924)
+2025-10-03T12:17:18.372+03:00  INFO 37012 --- [translator] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-03T12:17:20.394+03:00  INFO 37012 --- [translator] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
