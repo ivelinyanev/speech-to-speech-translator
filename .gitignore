@@ -6,7 +6,7 @@ build/
 !**/src/test/**/build/
 
 application-secrets.properties
-/src/main/java/org/example/translator/logs/*.log
+/src/main/java/org/example/translator/logs/logs/*.log
 
 ### STS ###
 .apt_generated
