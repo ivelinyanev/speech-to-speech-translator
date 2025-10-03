@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.translator.TranslatorApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-10-03T08:53:54.971Z" hostname="192.168.0.113" time="0.359">
+  <properties/>
+  <testcase name="contextLoads()" classname="org.example.translator.TranslatorApplicationTests" time="0.359"/>
+  <system-out><![CDATA[11:53:54.249 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.example.translator.TranslatorApplicationTests]: TranslatorApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+11:53:54.296 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration org.example.translator.TranslatorApplication for test class org.example.translator.TranslatorApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2025-10-03T11:53:54.491+03:00  INFO 36229 --- [translator] [    Test worker] o.e.t.TranslatorApplicationTests         : Starting TranslatorApplicationTests using Java 17.0.15 with PID 36229 (started by ivelinyanev in /Users/ivelinyanev/Documents/tu-all/3-kurs/5-sem/speech-to-speech-translator/backend)
+2025-10-03T11:53:54.492+03:00  INFO 36229 --- [translator] [    Test worker] o.e.t.TranslatorApplicationTests         : No active profile set, falling back to 1 default profile: "default"
+2025-10-03T11:53:54.965+03:00  INFO 36229 --- [translator] [    Test worker] o.e.t.TranslatorApplicationTests         : Started TranslatorApplicationTests in 0.603 seconds (process running for 1.1)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
