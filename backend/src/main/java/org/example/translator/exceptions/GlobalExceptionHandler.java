@@ -18,29 +18,60 @@ public class GlobalExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler(IOException.class)
-    public ResponseEntity<String> handleIOException(IOException e) {
-        logger.error(IO_LOG_ERROR, e);
+    public ResponseEntity<ErrorResponse> handleIOException(IOException e) {
+        logger.error(IO_ERROR, e);
+
+        ErrorResponse error = new ErrorResponse(
+                IO_FILE_PROCESS_ERROR + e.getMessage(),
+                "I/O Error",
+                HttpStatus.INTERNAL_SERVER_ERROR.value()
+        );
 
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(IO_FILE_PROCESS_ERROR + e.getMessage());
+                .body(error);
     }
 
     @ExceptionHandler(InterruptedException.class)
-    public ResponseEntity<String> handleInterruptedException(InterruptedException e) {
+    public ResponseEntity<ErrorResponse> handleInterruptedException(InterruptedException e) {
         logger.error(INTERRUPTION_ERROR, e);
 
+        ErrorResponse error = new ErrorResponse(
+                TEXT_TRANSLATION_ERROR_MESSAGE + e.getMessage(),
+                "Translation Interrupted",
+                HttpStatus.SERVICE_UNAVAILABLE.value()
+        );
         return ResponseEntity
-                .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(TEXT_TRANSLATION_ERROR_MESSAGE + e.getMessage());
+                .status(HttpStatus.SERVICE_UNAVAILABLE)
+                .body(error);
     }
 
     @ExceptionHandler(DeepLException.class)
-    public ResponseEntity<String> handleDeepLException(DeepLException e) {
+    public ResponseEntity<ErrorResponse> handleDeepLException(DeepLException e) {
         logger.error(DEEPL_ERROR, e);
 
+        ErrorResponse error = new ErrorResponse(
+                DEEPL_STANDARD_ERROR_MESSAGE + ": " + e.getMessage(),
+                "DeepL API Error",
+                HttpStatus.BAD_GATEWAY.value()
+        );
+
+        return ResponseEntity
+                .status(HttpStatus.BAD_GATEWAY)
+                .body(error);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponse> handleGenericException(Exception e) {
+        logger.error(UNEXPECTED_ERROR_OCCURRED, e);
+
+        ErrorResponse error = new ErrorResponse(
+                UNEXPECTED_SERVER_ERROR + e.getMessage(),
+                "Internal Server Error",
+                HttpStatus.INTERNAL_SERVER_ERROR.value()
+        );
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(DEEPL_STANDARD_ERROR_MESSAGE + e.getMessage());
+                .body(error);
     }
 }
