@@ -1,5 +1,6 @@
 package org.example.translator.controllers;
 
+import com.deepl.api.DeepLException;
 import org.example.translator.services.TranslationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @RequestMapping("api/translation")
 @RestController
@@ -23,9 +26,15 @@ public class TranslationController {
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadAudio(@RequestParam("file") MultipartFile file) throws IOException {
-        String textOutput = service.transcribe(file);
+    public ResponseEntity<Map<String, String>> uploadAudio(@RequestParam("file") MultipartFile file) throws IOException, DeepLException, InterruptedException {
+        String transcript = service.transcribe(file);
+        String translatedTranscript = service.translate(transcript);
 
-        return ResponseEntity.ok(textOutput);
+        Map<String, String> response = new HashMap<>();
+        response.put("original", transcript);
+        response.put("translated", translatedTranscript);
+
+        return ResponseEntity.ok(response);
     }
+
 }

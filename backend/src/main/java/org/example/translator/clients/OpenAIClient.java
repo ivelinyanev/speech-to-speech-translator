@@ -27,7 +27,7 @@ public class OpenAIClient {
     private final RestTemplate restTemplate;
 
     @Value(WHISPER_KEY)
-    String whisperKey;
+    private String whisperKey;
 
     @Autowired
     public OpenAIClient(RestTemplate restTemplate) {
@@ -56,6 +56,7 @@ public class OpenAIClient {
 
         body.add("file", filePart);
         body.add("model", AI_MODEL);
+        body.add("language", LANG_PARAM);
 
         HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(body, headers);
 
@@ -67,7 +68,7 @@ public class OpenAIClient {
             );
             return response.getBody();
         } catch (RestClientException e) {
-            throw new IOException("Failed to call Whisper API", e);
+            throw new IOException(WHISPER_CALL_FAIL_ERROR, e);
         }
     }
 
