@@ -61,6 +61,21 @@ public class GlobalExceptionHandler {
                 .body(error);
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorResponse> handleIllegalArgumentException(IllegalArgumentException e) {
+        logger.error("Invalid input: ", e);
+
+        ErrorResponse error = new ErrorResponse(
+                e.getMessage(),
+                "Bad Request",
+                HttpStatus.BAD_REQUEST.value()
+        );
+
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(error);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGenericException(Exception e) {
         logger.error(UNEXPECTED_ERROR_OCCURRED, e);

@@ -4,15 +4,8 @@ public class StringConstants {
 
     public static final String APPLICATION_PROPERTIES_PATH = "classpath:application.properties";
 
-    // WHISPER
-
-    public static final String AI_MODEL = "whisper-1";
-    public static final String WHISPER_KEY = "${open.ai.key}";
-    public static final String LANG_PARAM = "en";
-
     public static final String IO_FILE_PROCESS_ERROR = "An I/O error occurred while processing the file: ";
     public static final String IO_ERROR = "I/O error";
-    public static final String WHISPER_CALL_FAIL_ERROR = "Failed to call Whisper API";
 
     // DEEPL
 
