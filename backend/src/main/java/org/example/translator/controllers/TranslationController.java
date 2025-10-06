@@ -30,6 +30,7 @@ public class TranslationController {
         this.textToSpeechService = textToSpeechService;
     }
 
+    @CrossOrigin(origins = "http://localhost:5173")
     @PostMapping("/upload")
     public ResponseEntity<byte[]> uploadAudio(@RequestParam("file") MultipartFile file)
             throws IOException, DeepLException, InterruptedException {
