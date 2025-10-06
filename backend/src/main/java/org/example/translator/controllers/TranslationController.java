@@ -1,13 +1,12 @@
 package org.example.translator.controllers;
 
 import com.deepl.api.DeepLException;
+import org.example.translator.services.SpeechToTextService;
+import org.example.translator.services.TextToSpeechService;
 import org.example.translator.services.TranslationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -18,23 +17,37 @@ import java.util.Map;
 @RestController
 public class TranslationController {
 
-    private final TranslationService service;
+    private final SpeechToTextService speechToTextService;
+    private final TranslationService translationService;
+    private final TextToSpeechService textToSpeechService;
 
     @Autowired
-    public TranslationController(TranslationService service) {
-        this.service = service;
+    public TranslationController(SpeechToTextService speechToTextService,
+                                 TranslationService translationService,
+                                 TextToSpeechService textToSpeechService) {
+        this.speechToTextService = speechToTextService;
+        this.translationService = translationService;
+        this.textToSpeechService = textToSpeechService;
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<Map<String, String>> uploadAudio(@RequestParam("file") MultipartFile file) throws IOException, DeepLException, InterruptedException {
-        String transcript = service.transcribe(file);
-        String translatedTranscript = service.translate(transcript);
+    public ResponseEntity<byte[]> uploadAudio(@RequestParam("file") MultipartFile file)
+            throws IOException, DeepLException, InterruptedException {
 
-        Map<String, String> response = new HashMap<>();
-        response.put("original", transcript);
-        response.put("translated", translatedTranscript);
+        if (file.isEmpty()) {
+            throw new IllegalArgumentException("Uploaded file is empty");
+        }
 
-        return ResponseEntity.ok(response);
+        String transcript = speechToTextService.transcribe(file);
+        String translatedTranscript = translationService.translate(transcript);
+
+//        Map<String, String> response = new HashMap<>();
+//        response.put("original", transcript);
+//        response.put("translated", translatedTranscript);
+
+        byte[] audio = textToSpeechService.generateAudio(translatedTranscript);
+
+        return ResponseEntity.ok(audio);
     }
 
 }
