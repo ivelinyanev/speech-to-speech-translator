@@ -5,7 +5,6 @@ import com.openai.client.OpenAIClient;
 import com.openai.models.audio.AudioModel;
 import com.openai.models.audio.transcriptions.Transcription;
 import com.openai.models.audio.transcriptions.TranscriptionCreateParams;
-import com.openai.models.audio.transcriptions.TranscriptionCreateResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,12 +14,12 @@ import java.io.IOException;
 
 
 @Service
-public class TranscriptionService {
+public class SpeechToTextService {
 
     private final OpenAIClient client;
 
     @Autowired
-    public TranscriptionService(OpenAIClient client) {
+    public SpeechToTextService(OpenAIClient client) {
         this.client = client;
     }
 
