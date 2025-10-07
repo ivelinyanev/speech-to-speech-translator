@@ -1,2 +1,13 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+frontend/* linguist-vendored
+frontend/**/*.ts linguist-vendored
+frontend/**/*.tsx linguist-vendored
+frontend/**/*.js linguist-vendored
+frontend/**/*.jsx linguist-vendored
+frontend/**/*.css linguist-vendored
+frontend/**/*.scss linguist-vendored
+frontend/**/*.html linguist-vendored
+frontend/**/*.json linguist-vendored
+frontend/**/*.lock linguist-vendored
+frontend/node_modules/** linguist-vendored
