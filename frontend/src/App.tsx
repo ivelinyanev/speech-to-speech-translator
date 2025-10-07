@@ -1,7 +1,9 @@
 import { useState, useRef } from "react";
+import "./App.css";
 
 function App() {
     const [recording, setRecording] = useState(false);
+    const [loading, setLoading] = useState(false);
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const audioChunksRef = useRef<Blob[]>([]);
 
@@ -29,8 +31,8 @@ function App() {
             // Stop recording
             mediaRecorderRef.current?.stop();
             setRecording(false);
+            setLoading(true);
 
-            // Wait for a short moment to ensure all chunks are captured
             setTimeout(async () => {
                 const audioBlob = new Blob(audioChunksRef.current, { type: "audio/mp3" });
                 const formData = new FormData();
@@ -47,44 +49,43 @@ function App() {
                     const arrayBuffer = await response.arrayBuffer();
                     const translatedAudioBlob = new Blob([arrayBuffer], { type: "audio/mp3" });
 
-                    // Play the translated audio
                     const audio = new Audio(URL.createObjectURL(translatedAudioBlob));
                     await audio.play().catch((err) => {
                         console.error("Autoplay prevented:", err);
                     });
                 } catch (err) {
                     console.error("Error uploading or playing audio:", err);
+                } finally {
+                    setLoading(false);
                 }
-            }, 100); // 100ms ensures MediaRecorder has finalized
+            }, 100);
         }
     };
 
     return (
-        <div
-            style={{
-                display: "flex",
-                height: "100vh",
-                alignItems: "center",
-                justifyContent: "center",
-                flexDirection: "column",
-            }}
-        >
-            <button
-                onClick={handleRecordClick}
-                style={{
-                    width: 200,
-                    height: 200,
-                    borderRadius: "50%",
-                    fontSize: 18,
-                    backgroundColor: recording ? "#ff4d4f" : "#4caf50",
-                    color: "white",
-                    border: "none",
-                    cursor: "pointer",
-                }}
-            >
-                {recording ? "Stop Recording" : "Start Recording"}
-            </button>
-            <p>{recording ? "Recording..." : "Click the button to start"}</p>
+        <div className="app-container">
+            <div className="button-wrapper">
+                <button
+                    onClick={handleRecordClick}
+                    className={`record-btn ${recording ? "recording" : ""}`}
+                    disabled={loading}
+                >
+                    {loading ? (
+                        <div className="spinner"></div>
+                    ) : recording ? (
+                        "Stop"
+                    ) : (
+                        "Record"
+                    )}
+                </button>
+                <p className="status-text">
+                    {loading
+                        ? "Translating..."
+                        : recording
+                            ? "Recording..."
+                            : "Click to start recording"}
+                </p>
+            </div>
         </div>
     );
 }
