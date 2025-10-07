@@ -152,6 +152,15 @@ public String translate(String transcript) throws  InterruptedException, DeepLEx
 ```
 
 Supported languages you can check here: [DeepL Languages](https://developers.deepl.com/docs/getting-started/supported-languages).
+## Documentation
+
+[OpenAI Java API Library](https://github.com/openai/openai-java)
+
+[OpenAI Docs](https://platform.openai.com/docs/overview)
+
+[DeepL Java API Library](https://github.com/DeepLcom/deepl-java)
+
+[DeepL Docs](https://developers.deepl.com/docs/getting-started/intro)
 ## Future Improvements
 
 - Currently supports a single voice — could be extended to allow dynamic voice selection via the frontend.
