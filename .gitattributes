@@ -2,3 +2,4 @@
 * text=auto
 * linguist-vendored
 *.java linguist-vendored=false
+*.tsx linguist-vendored=false
