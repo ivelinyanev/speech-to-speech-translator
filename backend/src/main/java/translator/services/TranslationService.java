@@ -1,4 +1,4 @@
-package org.example.translator.services;
+package translator.services;
 
 import com.deepl.api.DeepLClient;
 import com.deepl.api.DeepLException;
@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
-import static org.example.translator.helpers.StringConstants.APPLICATION_PROPERTIES_PATH;
-import static org.example.translator.helpers.StringConstants.DEEPL_KEY;
+import static translator.helpers.StringConstants.APPLICATION_PROPERTIES_PATH;
+import static translator.helpers.StringConstants.DEEPL_KEY;
 
 @PropertySource(APPLICATION_PROPERTIES_PATH)
 @Service

@@ -1,4 +1,4 @@
-package org.example.translator.helpers;
+package translator.helpers;
 
 public class StringConstants {
 

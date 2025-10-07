@@ -1,4 +1,4 @@
-package org.example.translator.services;
+package translator.services;
 
 import com.openai.client.OpenAIClient;
 import com.openai.models.audio.speech.SpeechCreateParams;

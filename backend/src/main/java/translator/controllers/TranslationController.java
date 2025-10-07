@@ -1,17 +1,15 @@
-package org.example.translator.controllers;
+package translator.controllers;
 
 import com.deepl.api.DeepLException;
-import org.example.translator.services.SpeechToTextService;
-import org.example.translator.services.TextToSpeechService;
-import org.example.translator.services.TranslationService;
+import translator.services.SpeechToTextService;
+import translator.services.TextToSpeechService;
+import translator.services.TranslationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 @RequestMapping("api/translation")
 @RestController
@@ -41,10 +39,6 @@ public class TranslationController {
 
         String transcript = speechToTextService.transcribe(file);
         String translatedTranscript = translationService.translate(transcript);
-
-//        Map<String, String> response = new HashMap<>();
-//        response.put("original", transcript);
-//        response.put("translated", translatedTranscript);
 
         byte[] audio = textToSpeechService.generateAudio(translatedTranscript);
 

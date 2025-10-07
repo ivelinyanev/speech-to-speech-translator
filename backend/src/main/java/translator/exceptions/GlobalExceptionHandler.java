@@ -1,4 +1,4 @@
-package org.example.translator.exceptions;
+package translator.exceptions;
 
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import static org.example.translator.helpers.StringConstants.*;
+import static translator.helpers.StringConstants.*;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {

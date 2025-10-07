@@ -1,4 +1,4 @@
-package org.example.translator.exceptions;
+package translator.exceptions;
 
 import lombok.Getter;
 import lombok.Setter;
