@@ -101,13 +101,6 @@ To run the frontend:
   npm run dev
 ```
 Runs by default on http://localhost:5173.
-## Skills & Learning Outcomes
-
-Through building this project, I gained hands-on experience with:
-- Java & Spring Boot – Designing backend, handling REST endpoints, dependency injection, and centralized error handling.
-- API Integration – Calling multiple external APIs (OpenAI Whisper/TTS, DeepL), handling authentication, request/response processing, and streaming audio data.
-- Gradle Tooling – Managing Java dependencies, configuring toolchains, and building a production-ready backend.
-- Version Control & GitHub
 ## How to Use
 
 1. Make sure both backend and frontend are running:
@@ -161,6 +154,13 @@ Supported languages you can check here: [DeepL Languages](https://developers.dee
 [DeepL Java API Library](https://github.com/DeepLcom/deepl-java)
 
 [DeepL Docs](https://developers.deepl.com/docs/getting-started/intro)
+## Skills & Learning Outcomes
+
+Through building this project, I gained hands-on experience with:
+- Java & Spring Boot – Designing backend, handling REST endpoints, dependency injection, and centralized error handling.
+- API Integration – Calling multiple external APIs (OpenAI Whisper/TTS, DeepL), handling authentication, request/response processing, and streaming audio data.
+- Gradle Tooling – Managing Java dependencies, configuring toolchains, and building a production-ready backend.
+- Version Control & GitHub
 ## Future Improvements
 
 - Currently supports a single voice — could be extended to allow dynamic voice selection via the frontend.
